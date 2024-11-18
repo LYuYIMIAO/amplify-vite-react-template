@@ -1,4 +1,7 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { a, defineData, ClientSchema } from 'your-library'; // ��ȷ����ȷ�Ŀ�
+
+/**定义用户隔离的 Todo 和 Message 数据模型  */
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -7,25 +10,36 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+  Todo: a.model({
+      content: a.string(),// 待办内容
+      email: a.string(), // 创建人的邮箱
+      userNanme: a.string() // 创建人的用户名
+      }).authorization(allow => [allow.owner()]),// �� [allow.public()]
+    
+
+
+  // Message 数据模型（新增）
+  Message: a.model({
+    content: a.string(), // 消息内容
+    sender: a.string(), // 发送者
+    createdAt: a.timestamp(), // 消息发送时间
+  }).authorization((allow) => [allow.owner()]), // 用户隔离
 });
 
+// 定义后端的类型 Schema
 export type Schema = ClientSchema<typeof schema>;
 
+// 定义数据及其授权模式
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "apiKey",
-    // API Key is used for a.allow.public() rules
+    defaultAuthorizationMode: "userPool", // Ĭ��ʹ�� User Pool
     apiKeyAuthorizationMode: {
-      expiresInDays: 30,
+      expiresInDays: 30, // ���� API ��Կ����Ч��  30 ��
     },
   },
 });
+
 
 /*== STEP 2 ===============================================================
 Go to your frontend source code. From your client-side code, generate a
