@@ -3,22 +3,19 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-/* .logo {
+.logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #ffd664aa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61d7fbaa);
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
@@ -42,97 +39,4 @@
 
 .read-the-docs {
   color: #888;
-} */
-
-
-/**new-add*/
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  height: 80vh; /* 相对于视口高度的 80%，避免与 #root 样式冲突 */
-  width: 100%;
-  max-width: 600px;
-  margin: 1rem auto; /* 增加与顶部的间距 */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
-}
-
-.message-list {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  background-color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* 增加消息之间的间距 */
-}
-
-.message {
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 8px;
-  max-width: 70%;
-  word-wrap: break-word; /* 处理长文本自动换行 */
-}
-
-.message.sent {
-  align-self: flex-end;
-  background-color: #d1f0d1;
-  text-align: right; /* 调整为右对齐 */
-}
-
-.message.received {
-  align-self: flex-start;
-  background-color: #f0f0f0;
-  text-align: left; /* 调整为左对齐 */
-}
-
-.message-time {
-  font-size: 0.8rem; /* 时间戳的字体大小 */
-  color: #888; /* 时间戳的颜色 */
-  margin-top: 5px;
-  display: block; /* 独占一行 */
-}
-
-.input-container {
-  display: flex;
-  padding: 10px;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.input-container input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none; /* 移除默认焦点样式 */
-  transition: border-color 0.2s; /* 添加过渡效果 */
-}
-
-.input-container input:focus  {
-  border-color: #007bff; /* 焦点状态颜色 */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 添加轻微的阴影 */
-}
-
-.input-container button {
-  margin-left: 10px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s; /* 添加背景色过渡效果 */
-}
-
-.input-container button:hover {
-  background-color: #0056b3;
-}
-
-.input-container button:active {
-  background-color: #003f7f;
-  transform: scale(0.98); /* 点击时的缩放效果 */
 }

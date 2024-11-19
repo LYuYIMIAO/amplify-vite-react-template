@@ -7,15 +7,12 @@ body {
   width: 100vw;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* 避免内容贴近边缘 */
 }
 
 main {
   display: flex;
   flex-direction: column;
-  align-items: stretch;/* 保持与聊天容器居中一致 */
-  gap: 1rem; /* 增加子元素间距 */
-  width: 100%; /* 适配屏幕宽度 */
+  align-items: stretch;
 }
 
 button {
@@ -38,16 +35,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-button.chat-button {
-  background-color: #007bff;
-  color: white;
-  transition: background-color 0.3s;
-}
-button.chat-button:hover {
-  background-color: #0056b3;
-}
-
-
 ul {
   padding-inline-start: 0;
   margin-block-start: 0;
@@ -66,40 +53,10 @@ ul {
 li {
   background-color: white;
   padding: 8px;
-  border-radius: 4px;
 }
 
 li:hover {
   background: #dadbf9;
-}
-ul.message-list {
-  flex: 1;
-  padding: 10px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  overflow-y: auto;
-}
-
-li.message {
-  padding: 10px;
-  border-radius: 8px;
-  background-color: white;
-  max-width: 70%;
-  word-wrap: break-word;
-}
-
-li.message.sent {
-  align-self: flex-end;
-  background-color: #d1f0d1;
-}
-
-li.message.received {
-  align-self: flex-start;
-  background-color: #f0f0f0;
 }
 
 a {
