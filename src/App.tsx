@@ -8,7 +8,7 @@ const client = generateClient<Schema>();
 function App() {
     const { user, signOut } = useAuthenticator();
     const senderEmail = user?.signInDetails?.loginId;
-    const userN = user.userName
+    const userN = user.username
     const [messages, setMessages] = useState<Array<Schema["Todo"]["type"]>>([]);
     const [inputValue, setInputValue] = useState<string>("");
 
@@ -29,7 +29,7 @@ function App() {
             client.models.Todo.create({ 
               content: inputValue.trim(),
               email:senderEmail,
-              userName:userN});
+              username:userN});
             setInputValue(""); // 清空输入框
         }
     }
@@ -65,7 +65,6 @@ function App() {
                   marginBottom: '40px', // 提高标题与内容的距离
                   color: '#ff69b4', 
                   fontSize: '50px', // 标题字体增大
-                  fontWeight: 'bold',
               }}> Welcome back!  {user?.signInDetails?.loginId}</h1>
           </div>
   
@@ -88,7 +87,7 @@ function App() {
               backgroundPosition: 'center', // 居中显示背景
           }}>
               {messages.map((message) => {
-                  const isCurrentUser = (message.email === (user?.signInDetails?.loginId || user.userName));
+                  const isCurrentUser = (message.email === (user?.signInDetails?.loginId || user.username));
                   return (
                       <div key={message.id} style={{
                           display: 'flex',
